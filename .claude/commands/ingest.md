@@ -75,7 +75,37 @@ import { [ComponentName] } from "../../components/[type]/[subpath]/[componentNam
 const meta: Meta<typeof [ComponentName]> = {
   title: "[Group]/[category]/[componentName]",
   component: [ComponentName],
-  parameters: { layout: "centered" },
+  parameters: {
+    layout: "centered",
+    docs: {
+      description: {
+        component: `[One-line description].
+
+## Installation
+
+\`\`\`bash
+npx shadcn@latest add https://raw.githubusercontent.com/o1hive/design-vault/main/registry/[componentName].json
+\`\`\`
+
+## Usage
+
+\`\`\`tsx
+import { [ComponentName] } from "@/components/[type]/[subpath]/[componentName]"
+
+export function Example() {
+  return <[ComponentName]>[default content]</[ComponentName]>
+}
+\`\`\`
+`,
+      },
+    },
+  },
+  argTypes: {
+    /* document each prop */
+  },
+  args: {
+    /* default children / labels */
+  },
 }
 
 export default meta
@@ -89,7 +119,9 @@ Where `[Group]` is:
 - `Blocks` for `components/blocks/` components
 - `Shadcn` for `components/shadcn-components/` components
 
-**If the story file already exists**, skip creation and use the existing file.
+Populate `argTypes` with every prop from the component's interface — include `control` (e.g. `"text"`) and `description`. Set `args` with sensible defaults (e.g. a label for `children`). The `parameters.docs.description.component` markdown renders in Storybook's Docs tab.
+
+**If the story file already exists**, update it to include docs if missing, then use it.
 
 ## Step 4: Derive the Storybook URL
 
