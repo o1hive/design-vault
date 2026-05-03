@@ -170,15 +170,15 @@ File `type` must use the `registry:` prefix (e.g. `registry:ui`). Add extra file
 
 ### 7b. Run `shadcn build`
 
-This generates `public/r/[componentName].json` — deployable per-component JSONs with resolved content:
+This generates `registry/[componentName].json` — deployable per-component JSONs with resolved content:
 
 ```bash
-npx shadcn@latest build
+npx shadcn@latest build --output ./registry
 ```
 
-The `public/r/` directory is what users install from. The installation command in `[slug].md` is:
+The installation command in `[slug].md` is:
 ```bash
-npx shadcn@latest add https://raw.githubusercontent.com/o1hive/design-vault/main/public/r/[componentName].json
+npx shadcn@latest add https://raw.githubusercontent.com/o1hive/design-vault/main/registry/[componentName].json
 ```
 
 ## Step 8: Update the wiki
