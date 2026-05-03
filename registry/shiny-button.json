@@ -4,11 +4,11 @@
   "files": [
     {
       "path": "components/ui/buttons/shiny-button/index.tsx",
-      "type": "ui"
+      "type": "registry:ui"
     },
     {
       "path": "components/ui/buttons/shiny-button/shiny-button.css",
-      "type": "ui"
+      "type": "registry:ui"
     }
   ]
 }

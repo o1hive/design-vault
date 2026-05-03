@@ -165,13 +165,13 @@ This is the per-component registry item — what `npx shadcn add <url>` fetches.
   "files": [
     {
       "path": "components/[type]/[subpath]/[componentName]/index.tsx",
-      "type": "[type]"
+      "type": "registry:[type]"
     }
   ]
 }
 ```
 
-Use `registry:ui` for `components/ui/`, `registry:block` for `components/blocks/`. If the component has additional files (css, scss), add them to the files array.
+File `type` must use the `registry:` prefix (e.g. `registry:ui`, `registry:block`). Shadcn CLI validates against these exact discriminator values. If the component has additional files (css, scss), add them to the files array.
 
 ### 7b. Update `registry.json`
 
