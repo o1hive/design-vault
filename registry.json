@@ -1,26 +1,31 @@
-[
-  {
-    "name": "shiny-button",
-    "type": "registry:ui",
-    "files": [
-      {
-        "path": "components/ui/buttons/shiny-button/index.tsx",
-        "type": "ui"
-      },
-      {
-        "path": "components/ui/buttons/shiny-button/shiny-button.css",
-        "type": "ui"
-      }
-    ]
-  },
-  {
-    "name": "star-button",
-    "type": "registry:ui",
-    "files": [
-      {
-        "path": "components/ui/buttons/star-button/index.tsx",
-        "type": "ui"
-      }
-    ]
-  }
-]
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "o1hive-design-vault",
+  "homepage": "https://github.com/o1hive/design-vault",
+  "items": [
+    {
+      "name": "shiny-button",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/buttons/shiny-button/index.tsx",
+          "type": "ui"
+        },
+        {
+          "path": "components/ui/buttons/shiny-button/shiny-button.css",
+          "type": "ui"
+        }
+      ]
+    },
+    {
+      "name": "star-button",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/buttons/star-button/index.tsx",
+          "type": "ui"
+        }
+      ]
+    }
+  ]
+}

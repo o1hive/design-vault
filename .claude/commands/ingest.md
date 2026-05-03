@@ -152,9 +152,22 @@ Generate a minimal but complete usage example based on the component's actual im
 
 ## Step 7: Update registry.json
 
-Check `registry.json` for an existing entry with the component's name.
+`registry.json` is a shadcn registry object — an object with an `items` array, not a bare array:
 
-If **not found**, add a new entry:
+```json
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "o1hive-design-vault",
+  "homepage": "https://github.com/o1hive/design-vault",
+  "items": [
+    ...
+  ]
+}
+```
+
+### Adding a new component
+
+Add a new entry to the `items` array in alphabetical order by `name`:
 
 ```json
 {
@@ -171,9 +184,11 @@ If **not found**, add a new entry:
 
 Use `registry:ui` for `components/ui/`, `registry:block` for `components/blocks/`. If the component has additional files (css, scss), add them to the files array.
 
-Insert the new entry in the correct alphabetical position among items of the same type.
+**Never** convert the registry to a bare array — shadcn CLI expects a JSON object, not an array.
 
-If the entry **already exists**, verify it's up to date (correct files listed). Update if needed.
+### Updating an existing entry
+
+If the entry already exists in `items`, verify it's up to date (correct files listed). Update if needed.
 
 ## Step 8: Update the wiki
 
