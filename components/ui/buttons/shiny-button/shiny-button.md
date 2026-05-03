@@ -7,7 +7,7 @@ An animated gradient button with a rotating conic border and inner shimmer effec
 ## Installation
 
 ```bash
-npx shadcn@latest add https://raw.githubusercontent.com/o1hive/design-vault/main/registry/shiny-button.json
+npx shadcn@latest add https://raw.githubusercontent.com/o1hive/design-vault/main/shiny-button.json
 ```
 
 ## Usage

@@ -154,9 +154,9 @@ Generate a minimal but complete usage example based on the component's actual im
 
 Two files must be updated:
 
-### 7a. Create `registry/[componentName].json`
+### 7a. Create `[componentName].json` at repo root
 
-This is the per-component registry item — what `npx shadcn add <url>` fetches. It's a single JSON object:
+This is the per-component registry item — what `npx shadcn add <url>` fetches. Place it at the repo root so file paths resolve directly:
 
 ```json
 {
@@ -164,14 +164,19 @@ This is the per-component registry item — what `npx shadcn add <url>` fetches.
   "type": "registry:[type]",
   "files": [
     {
-      "path": "../components/[type]/[subpath]/[componentName]/index.tsx",
+      "path": "components/[type]/[subpath]/[componentName]/index.tsx",
       "type": "registry:[type]"
     }
   ]
 }
 ```
 
-File `type` must use the `registry:` prefix (e.g. `registry:ui`, `registry:block`). Paths use `../` because the per-component JSON lives in `registry/` — one level down from the repo root. If the component has additional files (css, scss), add them to the files array with the same `../` prefix.
+File `type` must use the `registry:` prefix (e.g. `registry:ui`, `registry:block`). If the component has additional files (css, scss), add them to the files array.
+
+The installation command in `[slug].md` is:
+```bash
+npx shadcn@latest add https://raw.githubusercontent.com/o1hive/design-vault/main/[componentName].json
+```
 
 ### 7b. Update `registry.json`
 
@@ -186,9 +191,6 @@ Add the same entry to the `items` array in `registry.json`, keeping alphabetical
 }
 ```
 
-The installation command in `[slug].md` should point to the per-component file:
-```bash
-npx shadcn@latest add https://raw.githubusercontent.com/o1hive/design-vault/main/registry/[componentName].json
 ```
 
 ## Step 8: Update the wiki
