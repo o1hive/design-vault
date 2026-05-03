@@ -6,4 +6,3 @@ dist/
 .playwright-cli/
 .DS_Store
 .obsidian/
-.swp

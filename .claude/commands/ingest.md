@@ -38,18 +38,18 @@ Extract from the path:
 - **componentName**: the directory name (last segment), e.g. `star-button`
 - **category**: For `ui/[category]/[name]`, the category is the parent directory (e.g. `buttons`). For `blocks/[name]`, infer the category from existing story patterns or from the component's purpose. For `shadcn-components/[name]`, use a matching category or create one.
 
-Key mapping for blocks (from existing stories):
-- Hero sections → `heros`
-- Feature sections → `section-features`
-- Pricing → `section-pricing`
-- Testimonials/Cards → `section-testimonials`
-- Forms/Sign-in → `forms`
-- 404 pages → `page-404`
-- Navigation/Menu → `navbars`
-- Notifications → `notification-menu`
-- Sidebar → `sidebar-menu`
+Consult `wiki/categories.md` for the full category list. If no existing category fits, create a new one (lowercase kebab-case plural noun) and add it to `wiki/categories.md` during Step 8.
 
 If the category can't be confidently determined, stop and ask the user which story category to use.
+
+### Block vs UI rule
+
+A component is `registry:block` **only** if it composes 2+ components together. A single standalone component is always `registry:ui`.
+
+- **block** → `components/blocks/[category]/[name]/`, type `registry:block`
+- **ui** → `components/ui/[category]/[name]/`, type `registry:ui`
+
+Examples: a hero that includes a nav + marquee + button is a block. A nav bar, logo marquee, or single button is ui — even if it has internal children.
 
 ## Step 2: Read and analyze the component
 
@@ -66,63 +66,46 @@ Also check for:
 
 ## Step 3: Create the Storybook story
 
+Every story must use the `ComponentPreview` wrapper. This renders the component inside a themed card with install and usage tabs, and provides the `#o1-story-component` element that the screenshot skill targets.
+
 Create `stories/[category]/[componentName].stories.tsx`:
 
 ```tsx
 import type { Meta, StoryObj } from "@storybook/react-vite"
+import { ComponentPreview } from "../../components/ui/util/component-preview"
 import { [ComponentName] } from "../../components/[type]/[subpath]/[componentName]"
 
-const meta: Meta<typeof [ComponentName]> = {
+const meta: Meta<typeof ComponentPreview> = {
   title: "[Group]/[category]/[componentName]",
-  component: [ComponentName],
-  parameters: {
-    layout: "centered",
-    docs: {
-      description: {
-        component: `[One-line description].
-
-## Installation
-
-\`\`\`bash
-npx shadcn@latest add https://raw.githubusercontent.com/o1hive/design-vault/main/registry/[componentName].json
-\`\`\`
-
-## Usage
-
-\`\`\`tsx
-import { [ComponentName] } from "@/components/[type]/[subpath]/[componentName]"
-
-export function Example() {
-  return <[ComponentName]>[default content]</[ComponentName]>
-}
-\`\`\`
-`,
-      },
-    },
-  },
-  argTypes: {
-    /* document each prop */
-  },
-  args: {
-    /* default children / labels */
-  },
-  tags: ["autodocs"],
+  component: ComponentPreview,
+  parameters: { layout: "fullscreen" },
 }
 
 export default meta
-type Story = StoryObj<typeof [ComponentName]>
+type Story = StoryObj<typeof ComponentPreview>
 
-export const Default: Story = {}
+export const Default: Story = {
+  args: {
+    componentName: "[componentName]",
+    component: <[ComponentName] />,
+    installCommand: "npx shadcn@latest add https://raw.githubusercontent.com/o1hive/design-vault/main/registry/[componentName].json",
+    usageCode: `import { [ComponentName] } from "@/components/[type]/[subpath]/[componentName]"
+
+export function Example() {
+  return <[ComponentName] />
+}`,
+  },
+}
 ```
+
+Fill in `installCommand` and `usageCode` with the actual values from the component's `[slug].md`.
 
 Where `[Group]` is:
 - `UI` for `components/ui/` components
 - `Blocks` for `components/blocks/` components
 - `Shadcn` for `components/shadcn-components/` components
 
-Populate `argTypes` with every prop from the component's interface — include `control` (e.g. `"text"`) and `description`. Set `args` with sensible defaults (e.g. a label for `children`). The `parameters.docs.description.component` markdown renders in Storybook's Docs tab.
-
-**If the story file already exists**, update it to include docs if missing, then use it.
+**If the story file already exists**, update it to use the `ComponentPreview` wrapper pattern.
 
 ## Step 4: Derive the Storybook URL
 
@@ -247,6 +230,16 @@ Each component gets this block:
 ```
 
 The `###` heading links to the component's detail `[slug].md`. The preview image is on the next line. Paths are relative to `wiki/`.
+
+### Maintain `wiki/categories.md`
+
+If the component's category is not yet listed in `wiki/categories.md`, add it. Insert the row alphabetically by category name:
+
+```markdown
+| [category] | [[category].md]([category].md) | Brief description of what this category contains |
+```
+
+If a wiki file exists for the category, link to it. If not yet, use `—`.
 
 ## Step 9: Run QA
 

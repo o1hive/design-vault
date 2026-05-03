@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hls-background",
+  "files": [
+    {
+      "path": "components/ui/video/hls-background/index.tsx",
+      "content": "import { useEffect, useRef } from \"react\"\nimport Hls from \"hls.js\"\n\ninterface HlsBackgroundProps {\n  src: string\n  className?: string\n}\n\nexport function HlsBackground({ src, className = \"\" }: HlsBackgroundProps) {\n  const videoRef = useRef<HTMLVideoElement>(null)\n\n  useEffect(() => {\n    const video = videoRef.current\n    if (!video) return\n\n    let hls: Hls | null = null\n\n    if (Hls.isSupported()) {\n      hls = new Hls({ autoStartLoad: true })\n      hls.loadSource(src)\n      hls.attachMedia(video)\n      hls.on(Hls.Events.MANIFEST_PARSED, () => {\n        video.play().catch(() => {})\n      })\n    } else if (video.canPlayType(\"application/vnd.apple.mpegurl\")) {\n      video.src = src\n      video.play().catch(() => {})\n    }\n\n    return () => {\n      hls?.destroy()\n    }\n  }, [src])\n\n  return (\n    <video\n      ref={videoRef}\n      autoPlay\n      loop\n      muted\n      playsInline\n      className={`absolute inset-0 h-full w-full object-cover ${className}`}\n      style={{ zIndex: 0 }}\n    />\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

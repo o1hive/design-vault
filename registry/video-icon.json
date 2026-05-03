@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "video-icon",
+  "files": [
+    {
+      "path": "components/ui/video/video-icon/index.tsx",
+      "content": "import { useEffect, useRef } from \"react\"\n\ninterface VideoIconProps {\n  src: string\n  size?: number\n  className?: string\n}\n\nexport function VideoIcon({ src, size = 72, className = \"\" }: VideoIconProps) {\n  const videoRef = useRef<HTMLVideoElement>(null)\n\n  useEffect(() => {\n    const el = videoRef.current\n    if (!el) return\n    el.play().catch(() => {})\n  }, [])\n\n  return (\n    <span\n      className={`inline-block align-middle rounded-full overflow-hidden shrink-0 ${className}`}\n      style={{\n        width: `clamp(48px, 10vw, ${size}px)`,\n        height: `clamp(48px, 10vw, ${size}px)`,\n      }}\n    >\n      <video\n        ref={videoRef}\n        autoPlay\n        loop\n        muted\n        playsInline\n        className=\"h-full w-full object-cover block\"\n      >\n        <source src={src} type=\"video/mp4\" />\n      </video>\n    </span>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

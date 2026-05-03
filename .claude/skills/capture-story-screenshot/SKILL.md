@@ -61,14 +61,14 @@ npx playwright-cli run-code "async page => { await page.waitForTimeout(3000); }"
 Always leave 10px of breathing room around the component. Use `run-code` to get the element's bounding box, expand it by 10px on each side, and screenshot that clip region:
 
 ```bash
-npx playwright-cli run-code "async page => { const el = page.locator('#storybook-root'); const box = await el.boundingBox(); if (!box) throw new Error('Element not found'); const pad = 10; await page.screenshot({ path: '<absolute-output-path>', clip: { x: Math.max(0, box.x - pad), y: Math.max(0, box.y - pad), width: box.width + pad * 2, height: box.height + pad * 2 } }); }"
+npx playwright-cli run-code "async page => { const el = page.locator('#o1-story-component'); const box = await el.boundingBox(); if (!box) throw new Error('Element not found'); const pad = 10; await page.screenshot({ path: '<absolute-output-path>', clip: { x: Math.max(0, box.x - pad), y: Math.max(0, box.y - pad), width: box.width + pad * 2, height: box.height + pad * 2 } }); }"
 ```
 
 Always use the absolute path for `<absolute-output-path>` — `run-code` executes in Playwright's working directory, not the project root.
 
-This captures only `#storybook-root` plus a 10px margin on all sides — tight enough to avoid excess whitespace, loose enough that the component doesn't feel clipped.
+This captures only the rendered component (`#o1-story-component`) plus a 10px margin on all sides — tight enough to avoid excess whitespace, loose enough that the component doesn't feel clipped.
 
-If `#storybook-root` isn't found (some Storybook versions may differ), fall back to a full viewport screenshot:
+If `#o1-story-component` isn't found, fall back to `#storybook-root`:
 
 ```bash
 npx playwright-cli screenshot --filename=<output-path>

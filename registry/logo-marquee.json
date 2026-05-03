@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "logo-marquee",
+  "files": [
+    {
+      "path": "components/ui/marquees/logo-marquee/index.tsx",
+      "content": "import { useEffect, useRef, useState } from \"react\"\nimport { motion } from \"framer-motion\"\n\ninterface LogoMarqueeProps {\n  logos: { src: string; alt: string }[]\n  speed?: number\n  className?: string\n}\n\nexport function LogoMarquee({ logos, speed = 30, className = \"\" }: LogoMarqueeProps) {\n  const trackRef = useRef<HTMLDivElement>(null)\n  const [trackWidth, setTrackWidth] = useState(0)\n\n  useEffect(() => {\n    const el = trackRef.current\n    if (!el) return\n    const update = () => setTrackWidth(el.scrollWidth / 2)\n    update()\n    window.addEventListener(\"resize\", update)\n    return () => window.removeEventListener(\"resize\", update)\n  }, [logos])\n\n  return (\n    <div\n      className={`relative w-full overflow-hidden py-8 ${className}`}\n      role=\"marquee\"\n      aria-label=\"Partner logos\"\n    >\n      {/* Fade edges */}\n      <div className=\"pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-background to-transparent\" />\n      <div className=\"pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-r from-transparent to-background\" />\n\n      {/* Scrolling track — duplicate for seamless loop */}\n      <motion.div\n        ref={trackRef}\n        className=\"flex w-max gap-[50px] px-[50px]\"\n        animate={{ x: trackWidth > 0 ? -trackWidth : 0 }}\n        transition={{ duration: speed, repeat: Infinity, ease: \"linear\" }}\n      >\n        {[...logos, ...logos].map((logo, i) => (\n          <img\n            key={`${logo.alt}-${i}`}\n            src={logo.src}\n            alt={logo.alt}\n            className=\"h-8 w-auto shrink-0 opacity-40 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0 md:h-10\"\n            loading=\"lazy\"\n          />\n        ))}\n      </motion.div>\n    </div>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

@@ -58,3 +58,12 @@ The export name must match the component slug in PascalCase:
 - slug `shape-landing-hero` → `export function ShapeLandingHero`
 
 Never leave a shadcn-installed export as `Component`, `App`, `Example`, or any generic name. If the original export is a `default` with a generic name, add a properly-named named export via `export { OriginalName as ProperName }`.
+
+## 6. Block vs UI categorization
+
+A component is **`registry:block`** only if it composes multiple components together. A single standalone component is always **`registry:ui`**.
+
+- **block** — combines 2+ components (e.g. a hero that includes a nav, marquee, and button)
+- **ui** — a single self-contained component (e.g. a button, nav, marquee, input, card)
+
+Verify the component's `type` in `registry.json` matches this rule. If a single component is categorized as `registry:block`, change it to `registry:ui` (and move it from `components/blocks/` to `components/ui/` if needed).

@@ -4,6 +4,56 @@
   "homepage": "https://github.com/o1hive/design-vault",
   "items": [
     {
+      "name": "glowy-waves-hero-shadcnui",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "components/blocks/glowy-waves-hero-shadcnui/index.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "hls-background",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/video/hls-background/index.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "kindred-nav",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/navbars/kindred-nav/index.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "logo-marquee",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/marquees/logo-marquee/index.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "rounded-nav",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/navbars/rounded-nav/index.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "shiny-button",
       "type": "registry:ui",
       "files": [
@@ -18,11 +68,31 @@
       ]
     },
     {
+      "name": "slide-button",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/buttons/slide-button/index.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "star-button",
       "type": "registry:ui",
       "files": [
         {
           "path": "components/ui/buttons/star-button/index.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "video-icon",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/video/video-icon/index.tsx",
           "type": "registry:ui"
         }
       ]

@@ -199,4 +199,5 @@ const SlideButton = forwardRef<HTMLButtonElement, ButtonProps>(
 
 SlideButton.displayName = "SlideButton"
 
+export { SlideButton }
 export default SlideButton
