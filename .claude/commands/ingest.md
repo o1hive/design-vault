@@ -150,44 +150,35 @@ export function Example() {
 
 Generate a minimal but complete usage example based on the component's actual implementation.
 
-## Step 7: Update registry
+## Step 7: Update registry.json and build
 
-Two files must be updated:
+### 7a. Add the component to `registry.json`
 
-### 7a. Create `[componentName].json` at repo root
+Add a new entry to the `items` array in alphabetical order by `name`. No `content` — just `path` and `type`:
 
-This is the per-component registry item that `npx shadcn add <url>` fetches. Use a Node script to read each source file and embed its content — shadcn requires `content` in per-component JSONs:
-
-```bash
-node -e "
-const fs = require('fs');
-const item = {
-  name: '[componentName]',
-  type: 'registry:[type]',
-  files: [
-    { path: '[path]/index.tsx', type: 'registry:[type]', content: fs.readFileSync('[path]/index.tsx', 'utf8') }
+```json
+{
+  "name": "[componentName]",
+  "type": "registry:[type]",
+  "files": [
+    { "path": "components/[type]/[subpath]/[componentName]/index.tsx", "type": "registry:[type]" }
   ]
-};
-fs.writeFileSync('[componentName].json', JSON.stringify(item, null, 2));
-"
-```
-
-Add extra file entries for any `.css` or `.scss` files. File `type` must use the `registry:` prefix (e.g. `registry:ui`).
-
-The installation command in `[slug].md` is:
-```bash
-npx shadcn@latest add https://raw.githubusercontent.com/o1hive/design-vault/main/[componentName].json
-```
-
-### 7b. Update `registry.json`
-
-Add the same entry (also with embedded `content`) to the `items` array in `registry.json`, keeping alphabetical order by `name`:
-  "name": "o1hive-design-vault",
-  "homepage": "https://github.com/o1hive/design-vault",
-  "items": [...]
 }
 ```
 
+File `type` must use the `registry:` prefix (e.g. `registry:ui`). Add extra file entries for any `.css` or `.scss` files.
+
+### 7b. Run `shadcn build`
+
+This generates `public/r/[componentName].json` — deployable per-component JSONs with resolved content:
+
+```bash
+npx shadcn@latest build
+```
+
+The `public/r/` directory is what users install from. The installation command in `[slug].md` is:
+```bash
+npx shadcn@latest add https://raw.githubusercontent.com/o1hive/design-vault/main/public/r/[componentName].json
 ```
 
 ## Step 8: Update the wiki
