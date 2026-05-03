@@ -164,14 +164,14 @@ This is the per-component registry item — what `npx shadcn add <url>` fetches.
   "type": "registry:[type]",
   "files": [
     {
-      "path": "components/[type]/[subpath]/[componentName]/index.tsx",
+      "path": "../components/[type]/[subpath]/[componentName]/index.tsx",
       "type": "registry:[type]"
     }
   ]
 }
 ```
 
-File `type` must use the `registry:` prefix (e.g. `registry:ui`, `registry:block`). Shadcn CLI validates against these exact discriminator values. If the component has additional files (css, scss), add them to the files array.
+File `type` must use the `registry:` prefix (e.g. `registry:ui`, `registry:block`). Paths use `../` because the per-component JSON lives in `registry/` — one level down from the repo root. If the component has additional files (css, scss), add them to the files array with the same `../` prefix.
 
 ### 7b. Update `registry.json`
 
