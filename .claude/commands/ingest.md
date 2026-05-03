@@ -156,22 +156,23 @@ Two files must be updated:
 
 ### 7a. Create `[componentName].json` at repo root
 
-This is the per-component registry item — what `npx shadcn add <url>` fetches. Place it at the repo root so file paths resolve directly:
+This is the per-component registry item. Use this script to generate it with inline content:
 
-```json
-{
-  "name": "[componentName]",
-  "type": "registry:[type]",
-  "files": [
-    {
-      "path": "components/[type]/[subpath]/[componentName]/index.tsx",
-      "type": "registry:[type]"
-    }
+```bash
+node -e "
+const fs = require('fs');
+const item = {
+  name: '[componentName]',
+  type: 'registry:[type]',
+  files: [
+    { path: '[component-path]/index.tsx', type: 'registry:[type]', content: fs.readFileSync('[component-path]/index.tsx', 'utf8') }
   ]
-}
+};
+fs.writeFileSync('[componentName].json', JSON.stringify(item, null, 2));
+"
 ```
 
-File `type` must use the `registry:` prefix (e.g. `registry:ui`, `registry:block`). If the component has additional files (css, scss), add them to the files array.
+Add extra file entries for any `.css` or `.scss` files. The `content` field embeds the source in the JSON — shadcn requires this; it does not fetch files from `path` URLs.
 
 The installation command in `[slug].md` is:
 ```bash
@@ -180,7 +181,7 @@ npx shadcn@latest add https://raw.githubusercontent.com/o1hive/design-vault/main
 
 ### 7b. Update `registry.json`
 
-Add the same entry to the `items` array in `registry.json`, keeping alphabetical order by `name`. `registry.json` is the collection index:
+Add the same entry (with inline `content`) to the `items` array in `registry.json`, keeping alphabetical order by `name`. Use the same `node` script approach — read each file and embed its content. `registry.json` is the collection index:
 
 ```json
 {
