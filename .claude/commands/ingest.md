@@ -106,6 +106,7 @@ export function Example() {
   args: {
     /* default children / labels */
   },
+  tags: ["autodocs"],
 }
 
 export default meta

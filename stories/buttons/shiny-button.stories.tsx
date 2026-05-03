@@ -46,6 +46,7 @@ export function Example() {
   args: {
     children: "Get unlimited access",
   },
+  tags: ["autodocs"],
 }
 
 export default meta

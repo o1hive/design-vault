@@ -46,6 +46,7 @@ export function Example() {
   args: {
     children: "Button",
   },
+  tags: ["autodocs"],
 }
 
 export default meta
