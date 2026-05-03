@@ -150,24 +150,13 @@ export function Example() {
 
 Generate a minimal but complete usage example based on the component's actual implementation.
 
-## Step 7: Update registry.json
+## Step 7: Update registry
 
-`registry.json` is a shadcn registry object — an object with an `items` array, not a bare array:
+Two files must be updated:
 
-```json
-{
-  "$schema": "https://ui.shadcn.com/schema/registry.json",
-  "name": "o1hive-design-vault",
-  "homepage": "https://github.com/o1hive/design-vault",
-  "items": [
-    ...
-  ]
-}
-```
+### 7a. Create `registry/[componentName].json`
 
-### Adding a new component
-
-Add a new entry to the `items` array in alphabetical order by `name`:
+This is the per-component registry item — what `npx shadcn add <url>` fetches. It's a single JSON object:
 
 ```json
 {
@@ -184,11 +173,23 @@ Add a new entry to the `items` array in alphabetical order by `name`:
 
 Use `registry:ui` for `components/ui/`, `registry:block` for `components/blocks/`. If the component has additional files (css, scss), add them to the files array.
 
-**Never** convert the registry to a bare array — shadcn CLI expects a JSON object, not an array.
+### 7b. Update `registry.json`
 
-### Updating an existing entry
+Add the same entry to the `items` array in `registry.json`, keeping alphabetical order by `name`. `registry.json` is the collection index:
 
-If the entry already exists in `items`, verify it's up to date (correct files listed). Update if needed.
+```json
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "o1hive-design-vault",
+  "homepage": "https://github.com/o1hive/design-vault",
+  "items": [...]
+}
+```
+
+The installation command in `[slug].md` should point to the per-component file:
+```bash
+npx shadcn@latest add https://raw.githubusercontent.com/o1hive/design-vault/main/registry/[componentName].json
+```
 
 ## Step 8: Update the wiki
 

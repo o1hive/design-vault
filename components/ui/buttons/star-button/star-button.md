@@ -7,7 +7,7 @@ An animated button with floating star particles that scatter on hover.
 ## Installation
 
 ```bash
-npx shadcn@latest add https://raw.githubusercontent.com/o1hive/design-vault/main/registry.json -s star-button
+npx shadcn@latest add https://raw.githubusercontent.com/o1hive/design-vault/main/registry/star-button.json
 ```
 
 ## Usage

@@ -1,0 +1,14 @@
+{
+  "name": "shiny-button",
+  "type": "registry:ui",
+  "files": [
+    {
+      "path": "components/ui/buttons/shiny-button/index.tsx",
+      "type": "ui"
+    },
+    {
+      "path": "components/ui/buttons/shiny-button/shiny-button.css",
+      "type": "ui"
+    }
+  ]
+}

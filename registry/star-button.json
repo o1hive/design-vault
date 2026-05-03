@@ -1,0 +1,10 @@
+{
+  "name": "star-button",
+  "type": "registry:ui",
+  "files": [
+    {
+      "path": "components/ui/buttons/star-button/index.tsx",
+      "type": "ui"
+    }
+  ]
+}
