@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.env
+*.log
+.mcp.json
+.playwright-cli/
+.DS_Store
+.obsidian/

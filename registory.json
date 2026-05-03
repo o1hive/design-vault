@@ -1,0 +1,306 @@
+{
+  "name": "o1hive-design-vault",
+  "description": "UI components and blocks from the o1hive designer vault \u2014 install via shadcn CLI",
+  "items": [
+    {
+      "name": "animated-text-cycle",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/animated-text-cycle/index.tsx",
+          "type": "ui"
+        }
+      ]
+    },
+    {
+      "name": "button-witn-icon",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/button-witn-icon/index.tsx",
+          "type": "ui"
+        }
+      ]
+    },
+    {
+      "name": "copy-code-button",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/copy-code-button/index.tsx",
+          "type": "ui"
+        }
+      ]
+    },
+    {
+      "name": "liquid-text",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/liquid-text/index.tsx",
+          "type": "ui"
+        }
+      ]
+    },
+    {
+      "name": "reveal-text",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/reveal-text/index.tsx",
+          "type": "ui"
+        }
+      ]
+    },
+    {
+      "name": "shiny-button",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/shiny-button/index.tsx",
+          "type": "ui"
+        }
+      ]
+    },
+    {
+      "name": "slide-button",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/slide-button/index.tsx",
+          "type": "ui"
+        }
+      ]
+    },
+    {
+      "name": "star-button",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/star-button/index.tsx",
+          "type": "ui"
+        }
+      ]
+    },
+    {
+      "name": "text-color",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/text-color/index.tsx",
+          "type": "ui"
+        }
+      ]
+    },
+    {
+      "name": "text-particle",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/text-particle/index.tsx",
+          "type": "ui"
+        }
+      ]
+    },
+    {
+      "name": "typewriter-effect",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/typewriter-effect/index.tsx",
+          "type": "ui"
+        }
+      ]
+    },
+    {
+      "name": "animated-video-plane-hero",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "components/blocks/animated-video-plane-hero/index.tsx",
+          "type": "block"
+        }
+      ]
+    },
+    {
+      "name": "cards",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "components/blocks/cards/index.tsx",
+          "type": "block"
+        }
+      ]
+    },
+    {
+      "name": "features-6",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "components/blocks/features-6/index.tsx",
+          "type": "block"
+        }
+      ]
+    },
+    {
+      "name": "features-8",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "components/blocks/features-8/index.tsx",
+          "type": "block"
+        }
+      ]
+    },
+    {
+      "name": "floating-header",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "components/blocks/floating-header/index.tsx",
+          "type": "block"
+        }
+      ]
+    },
+    {
+      "name": "ghost-404-page",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "components/blocks/ghost-404-page/index.tsx",
+          "type": "block"
+        }
+      ]
+    },
+    {
+      "name": "glow-menu",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "components/blocks/glow-menu/index.tsx",
+          "type": "block"
+        }
+      ]
+    },
+    {
+      "name": "glowy-waves-hero-shadcnui",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "components/blocks/glowy-waves-hero-shadcnui/index.tsx",
+          "type": "block"
+        }
+      ]
+    },
+    {
+      "name": "not-found-page-2",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "components/blocks/not-found-page-2/index.tsx",
+          "type": "block"
+        }
+      ]
+    },
+    {
+      "name": "notifications-menu",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "components/blocks/notifications-menu/index.tsx",
+          "type": "block"
+        }
+      ]
+    },
+    {
+      "name": "pricing",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "components/blocks/pricing/index.tsx",
+          "type": "block"
+        }
+      ]
+    },
+    {
+      "name": "pricing-component",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "components/blocks/pricing-component/index.tsx",
+          "type": "block"
+        }
+      ]
+    },
+    {
+      "name": "pricing-table",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "components/blocks/pricing-table/index.tsx",
+          "type": "block"
+        }
+      ]
+    },
+    {
+      "name": "ride-booking-form",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "components/blocks/ride-booking-form/index.tsx",
+          "type": "block"
+        }
+      ]
+    },
+    {
+      "name": "shape-landing-hero",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "components/blocks/shape-landing-hero/index.tsx",
+          "type": "block"
+        }
+      ]
+    },
+    {
+      "name": "sidebar",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "components/blocks/sidebar/index.tsx",
+          "type": "block"
+        }
+      ]
+    },
+    {
+      "name": "sign-in-form",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "components/blocks/sign-in-form/index.tsx",
+          "type": "block"
+        }
+      ]
+    },
+    {
+      "name": "sliding-testimonial",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "components/blocks/sliding-testimonial/index.tsx",
+          "type": "block"
+        }
+      ]
+    },
+    {
+      "name": "testimonial-v2",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "components/blocks/testimonial-v2/index.tsx",
+          "type": "block"
+        }
+      ]
+    }
+  ]
+}
