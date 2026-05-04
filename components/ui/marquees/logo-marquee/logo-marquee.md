@@ -1,13 +1,13 @@
 # LogoMarquee
 
-A horizontal auto-scrolling logo strip with fade edges and grayscale-to-color hover.
+A horizontal scrolling logo cloud that displays brand logos in an infinite loop with a gradient fade mask on the edges.
 
 ![Preview](preview.png)
 
 ## Installation
 
 ```bash
-npx shadcn@latest add https://raw.githubusercontent.com/o1hive/design-vault/main/registry/logo-marquee.json
+npx shadcn add logo-marquee
 ```
 
 ## Usage
@@ -16,8 +16,9 @@ npx shadcn@latest add https://raw.githubusercontent.com/o1hive/design-vault/main
 import { LogoMarquee } from "@/components/ui/marquees/logo-marquee"
 
 const logos = [
-  { src: "/logos/vercel.svg", alt: "Vercel" },
-  { src: "/logos/stripe.svg", alt: "Stripe" },
+  { src: "https://svgl.app/library/vercel_wordmark.svg", alt: "Vercel" },
+  { src: "https://svgl.app/library/supabase_wordmark_light.svg", alt: "Supabase" },
+  { src: "https://svgl.app/library/openai_wordmark_light.svg", alt: "OpenAI" },
 ]
 
 export function Example() {
@@ -29,6 +30,5 @@ export function Example() {
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| logos | `{ src: string; alt: string }[]` | — | Array of logo images |
-| speed | `number` | `30` | Scroll duration in seconds |
+| logos | `{ src: string; alt: string; width?: number; height?: number }[]` | — | Array of logo objects to display |
 | className | `string` | — | Additional CSS classes |

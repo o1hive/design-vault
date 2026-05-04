@@ -16,5 +16,5 @@
 | shadcn-components | — | Raw shadcn primitives (button, card, input, etc.) |
 | sidebar-menu | — | Sidebars, drawer menus |
 | text-effects | — | Text animations, typewriter, reveal |
-| util | — | Utility wrappers, previews, demos |
+| util | [util.md](util.md) | Utility wrappers, previews, demos |
 | video | [video.md](video.md) | Video players, video backgrounds |

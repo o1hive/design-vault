@@ -80,7 +80,7 @@ export function ComponentPreview({
       {/* Content */}
       <div className="flex-1">
         {activeTab === "preview" && (
-          <div id="o1-story-component" className="rounded-xl bg-muted/50 p-10">
+          <div id="o1-story-component" className="rounded-xl p-10">
             {component}
           </div>
         )}

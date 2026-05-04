@@ -3,37 +3,41 @@ import { ComponentPreview } from "../../components/ui/util/component-preview"
 import { KindredNav } from "../../components/ui/navbars/kindred-nav"
 import { Button } from "../../components/shadcn-components/button"
 
-const meta: Meta<typeof ComponentPreview> = {
+const meta: Meta<typeof KindredNav> = {
   title: "UI/navbars/kindred-nav",
-  component: ComponentPreview,
+  component: KindredNav,
   parameters: { layout: "fullscreen" },
 }
 
 export default meta
-type Story = StoryObj<typeof ComponentPreview>
+type Story = StoryObj<typeof KindredNav>
 
 export const Default: Story = {
   args: {
-    componentName: "kindred-nav",
-    component: (
-      <KindredNav
-        logo={<span className="text-lg font-bold text-foreground">Kindred</span>}
-        menuItems={[
-          { label: "Product", href: "#" },
-          { label: "Pricing", href: "#" },
-          { label: "Docs", href: "#" },
-          { label: "Blog", href: "#" },
-        ]}
-        actions={
-          <>
-            <Button variant="ghost" size="sm">Sign in</Button>
-            <Button size="sm">Get started</Button>
-          </>
-        }
-      />
-    ),
-    installCommand: "npx shadcn@latest add https://raw.githubusercontent.com/o1hive/design-vault/main/registry/kindred-nav.json",
-    usageCode: `import { KindredNav } from "@/components/ui/navbars/kindred-nav"
+    menuItems: [
+      { label: "Product", href: "#" },
+      { label: "Pricing", href: "#" },
+      { label: "Docs", href: "#" },
+      { label: "Blog", href: "#" },
+    ],
+  },
+  render: (args) => (
+    <ComponentPreview
+      componentName="kindred-nav"
+      component={
+        <KindredNav
+          {...args}
+          logo={<span className="text-lg font-bold text-foreground">Kindred</span>}
+          actions={
+            <>
+              <Button variant="ghost" size="sm">Sign in</Button>
+              <Button size="sm">Get started</Button>
+            </>
+          }
+        />
+      }
+      installCommand="npx shadcn@latest add https://raw.githubusercontent.com/o1hive/design-vault/main/registry/kindred-nav.json"
+      usageCode={`import { KindredNav } from "@/components/ui/navbars/kindred-nav"
 import { Button } from "@/components/ui/button"
 
 export function Example() {
@@ -52,6 +56,7 @@ export function Example() {
       }
     />
   )
-}`,
-  },
+}`}
+    />
+  ),
 }

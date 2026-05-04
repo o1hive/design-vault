@@ -2,42 +2,46 @@ import type { Meta, StoryObj } from "@storybook/react-vite"
 import { ComponentPreview } from "../../components/ui/util/component-preview"
 import { LogoMarquee } from "../../components/ui/marquees/logo-marquee"
 
-const placeholderLogos = [
-  { src: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/vercel.svg", alt: "Vercel" },
-  { src: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/stripe.svg", alt: "Stripe" },
-  { src: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linear.svg", alt: "Linear" },
-  { src: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/figma.svg", alt: "Figma" },
-  { src: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg", alt: "GitHub" },
-  { src: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/supabase.svg", alt: "Supabase" },
+const sampleLogos = [
+  { src: "https://svgl.app/library/nvidia-wordmark-light.svg", alt: "Nvidia Logo" },
+  { src: "https://svgl.app/library/supabase_wordmark_light.svg", alt: "Supabase Logo" },
+  { src: "https://svgl.app/library/openai_wordmark_light.svg", alt: "OpenAI Logo" },
+  { src: "https://svgl.app/library/turso-wordmark-light.svg", alt: "Turso Logo" },
+  { src: "https://svgl.app/library/vercel_wordmark.svg", alt: "Vercel Logo" },
+  { src: "https://svgl.app/library/github_wordmark_light.svg", alt: "GitHub Logo" },
+  { src: "https://svgl.app/library/claude-ai-wordmark-icon_light.svg", alt: "Claude AI Logo" },
+  { src: "https://svgl.app/library/clerk-wordmark-light.svg", alt: "Clerk Logo" },
 ]
 
-const meta: Meta<typeof ComponentPreview> = {
+const meta: Meta<typeof LogoMarquee> = {
   title: "UI/marquees/logo-marquee",
-  component: ComponentPreview,
+  component: LogoMarquee,
   parameters: { layout: "fullscreen" },
 }
 
 export default meta
-type Story = StoryObj<typeof ComponentPreview>
+type Story = StoryObj<typeof LogoMarquee>
 
 export const Default: Story = {
   args: {
-    componentName: "logo-marquee",
-    component: (
-      <div className="w-full bg-background">
-        <LogoMarquee logos={placeholderLogos} />
-      </div>
-    ),
-    installCommand: "npx shadcn@latest add https://raw.githubusercontent.com/o1hive/design-vault/main/registry/logo-marquee.json",
-    usageCode: `import { LogoMarquee } from "@/components/ui/marquees/logo-marquee"
-
-const logos = [
-  { src: "/logos/vercel.svg", alt: "Vercel" },
-  { src: "/logos/stripe.svg", alt: "Stripe" },
-]
+    logos: sampleLogos,
+  },
+  render: (args) => (
+    <ComponentPreview
+      componentName="logo-marquee"
+      component={<LogoMarquee {...args} />}
+      installCommand="npx shadcn@latest add https://raw.githubusercontent.com/o1hive/design-vault/main/registry/logo-marquee.json"
+      usageCode={`import { LogoMarquee } from "@/components/ui/marquees/logo-marquee"
 
 export function Example() {
-  return <LogoMarquee logos={logos} />
-}`,
-  },
+  return (
+    <LogoMarquee logos={[
+      { src: "https://svgl.app/library/vercel_wordmark.svg", alt: "Vercel" },
+      { src: "https://svgl.app/library/supabase_wordmark_light.svg", alt: "Supabase" },
+      { src: "https://svgl.app/library/openai_wordmark_light.svg", alt: "OpenAI" },
+    ]} />
+  )
+}`}
+    />
+  ),
 }
